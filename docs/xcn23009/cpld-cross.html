@@ -1,8 +1,1661 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>CPLD Cross Reference</title>
-    </head>
-    <body>
-        <h1>CPLD Cross Reference</h1>
-    </body>
+
+<head>
+
+    <link rel="stylesheet" type="text/css"
+        href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+    <link href="jquery.dataTables.yadcf.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script src="jquery.dataTables.yadcf.js"></script>
+
+    <style>
+        .label {
+            padding: 0px 10px 0px 10px;
+            border: 1px solid #ccc;
+            -moz-border-radius: 1em;
+            /* for mozilla-based browsers */
+            -webkit-border-radius: 1em;
+            /* for webkit-based browsers */
+            border-radius: 1em;
+            /* theoretically for *all* browsers*/
+        }
+
+        #external_filter_container_wrapper {
+            margin-bottom: 20px;
+        }
+
+        .label.xilinx {
+            background-color: lightsalmon;
+        }
+
+        .label.intel {
+            background-color: deepskyblue;
+        }
+
+        .slider {
+            /* display: inline-block; */
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#example').dataTable().yadcf([
+                { column_number: 0 }, 
+                { column_number: 1, text_data_delimiter: ",", filter_type: "auto_complete" },
+                { column_number: 2, filter_type: "range_number_slider", filter_container_id: "macro_filter_container" },
+                { column_number: 3, filter_type: "range_number_slider", filter_container_id: "gpio_filter_container"  },
+                { column_number: 4 },
+                { column_number: 5 }, 
+                { column_number: 6, filter_type: "range_number_slider", filter_container_id: "area_filter_container"  },
+                { column_number: 7 },
+                { column_number: 8 } 
+            ]);
+        });
+    </script>
+    <meta charset=utf-8 />
+
+    <title>CPLD Cross Reference</title>
+</head>
+
+<body id="yadcf_example">
+    <div id="container">
+    <h1>CPLD Cross Reference</h1>
+    <div id="external_filter_container_wrapper">
+        <label>Macrocell Range Select:</label>
+        <div class="slider" id="macro_filter_container"></div>
+        <label>I/O Range Select:</label>
+        <div class="slider" id="gpio_filter_container"></div>
+        <label>Area Range Select:</label>
+        <div class="slider" id="area_filter_container"></div>
+    </div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+        <thead>
+            <tr>
+                <th>Family</th>
+                <th>Device</th>
+                <th>Macro</th>
+                <th>I/O</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Area</th>
+                <th>Pitch</th>
+                <th>Auto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA95144XL-CSG144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>BGA</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA9536XL-VQG44</td>
+                <td>36</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA9572XL-TQG100</td>
+                <td>72</td>
+                <td>72</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA9572XL-VQG44</td>
+                <td>72</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA9572XL-VQG64</td>
+                <td>72</td>
+                <td>52</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-CSG144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>BGA</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-TQG100</td>
+                <td>144</td>
+                <td>81</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XA9572XL-VQG64</td>
+                <td>72</td>
+                <td>52</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-CS144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>BGA</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-TQ100</td>
+                <td>144</td>
+                <td>81</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-TQ144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-CSG144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>BGA</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-TQG100</td>
+                <td>144</td>
+                <td>81</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95144XL-TQG144</td>
+                <td>144</td>
+                <td>117</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-BGG256</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>27x27</td>
+                <td>729</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-CSG280</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-FGG256</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-TQG144</td>
+                <td>288</td>
+                <td>117</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-BG256</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>27x27</td>
+                <td>729</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-CS280</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-FG256</td>
+                <td>288</td>
+                <td>192</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC95288XL-TQ144</td>
+                <td>288</td>
+                <td>117</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-CSG48</td>
+                <td>36</td>
+                <td>36</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQG44</td>
+                <td>36</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQG64</td>
+                <td>36</td>
+                <td>36</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-CS48</td>
+                <td>36</td>
+                <td>36</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQ44</td>
+                <td>36</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQ64</td>
+                <td>36</td>
+                <td>36</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-CSG48</td>
+                <td>72</td>
+                <td>38</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-VQG44</td>
+                <td>72</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQG64</td>
+                <td>72</td>
+                <td>52</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-TQG100</td>
+                <td>72</td>
+                <td>72</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-CS48</td>
+                <td>72</td>
+                <td>38</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-VQ44</td>
+                <td>72</td>
+                <td>34</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9536XL-VQ64</td>
+                <td>72</td>
+                <td>52</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XC9500XL</span></td>
+                <td>XC9572XL-TQ100</td>
+                <td>72</td>
+                <td>72</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3032XL-CSG48</td>
+                <td>32</td>
+                <td>36</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3032XL-VQG44</td>
+                <td>32</td>
+                <td>36</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3064XL-CSG48</td>
+                <td>64</td>
+                <td>40</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3064XL-VQG44</td>
+                <td>64</td>
+                <td>36</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3064XL-CPG56</td>
+                <td>64</td>
+                <td>48</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3064XL-VQG100</td>
+                <td>64</td>
+                <td>68</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3128XL-CSG144</td>
+                <td>128</td>
+                <td>108</td>
+                <td>BGA</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3128XL-TQG144</td>
+                <td>128</td>
+                <td>108</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3128XL-VQG100</td>
+                <td>128</td>
+                <td>84</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3256XL-CSG280</td>
+                <td>256</td>
+                <td>164</td>
+                <td>BGA</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3256XL-TQG144</td>
+                <td>256</td>
+                <td>120</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3256XL-FTG256</td>
+                <td>256</td>
+                <td>164</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3384XL-TQG144</td>
+                <td>384</td>
+                <td>118</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3384XL-FTG256</td>
+                <td>384</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3512XL-FGG324</td>
+                <td>512</td>
+                <td>260</td>
+                <td>BGA</td>
+                <td>23x23</td>
+                <td>529</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">XPLA3</span></td>
+                <td>XCR3512XL-FTG256</td>
+                <td>512</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C128-CPG132</td>
+                <td>128</td>
+                <td>100</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C128-VQG100</td>
+                <td>128</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C256-TQG144</td>
+                <td>256</td>
+                <td>118</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C256-VQG100</td>
+                <td>256</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C32A-VQG44</td>
+                <td>32</td>
+                <td>33</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C384-TQG144</td>
+                <td>384</td>
+                <td>118</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C64A-VQG44</td>
+                <td>64</td>
+                <td>33</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XA2C64A-VQG100</td>
+                <td>64</td>
+                <td>64</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td>Yes</td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C128-CPG132</td>
+                <td>128</td>
+                <td>100</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C128-TQG144</td>
+                <td>128</td>
+                <td>100</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C128-VQG100</td>
+                <td>128</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C256-CPG132</td>
+                <td>256</td>
+                <td>106</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C256-TQG144</td>
+                <td>256</td>
+                <td>118</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C256-VQG100</td>
+                <td>256</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C256-FTG256</td>
+                <td>256</td>
+                <td>184</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C32A-CPG56</td>
+                <td>32</td>
+                <td>33</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C32A-QFG32</td>
+                <td>32</td>
+                <td>21</td>
+                <td>QFN</td>
+                <td>5x5</td>
+                <td>25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C32A-VQG44</td>
+                <td>32</td>
+                <td>33</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C384-TQG144</td>
+                <td>384</td>
+                <td>118</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C384-FGG324</td>
+                <td>384</td>
+                <td>240</td>
+                <td>BGA</td>
+                <td>23x23</td>
+                <td>529</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C384-FTG256</td>
+                <td>384</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C512-FGG324</td>
+                <td>512</td>
+                <td>270</td>
+                <td>BGA</td>
+                <td>23x23</td>
+                <td>529</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C512-FTG256</td>
+                <td>512</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C64A-CPG56</td>
+                <td>64</td>
+                <td>45</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C64A-QFG48</td>
+                <td>64</td>
+                <td>37</td>
+                <td>QFN</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C64A-VQG44</td>
+                <td>64</td>
+                <td>33</td>
+                <td>QFP</td>
+                <td>12x12</td>
+                <td>144</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="xilinx">
+                <td><span class="label xilinx">CoolRunner II</span></td>
+                <td>XC2C64A-VQG100</td>
+                <td>64</td>
+                <td>64</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM240-T100</td>
+                <td>192</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM240-M100</td>
+                <td>192</td>
+                <td>80</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM240-F100</td>
+                <td>192</td>
+                <td>80</td>
+                <td>QFP</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-T100</td>
+                <td>440</td>
+                <td>76</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-M100</td>
+                <td>440</td>
+                <td>76</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-F100</td>
+                <td>440</td>
+                <td>76</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-T144</td>
+                <td>440</td>
+                <td>116</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-M256</td>
+                <td>440</td>
+                <td>160</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570-F256</td>
+                <td>440</td>
+                <td>160</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM1270-T144</td>
+                <td>980</td>
+                <td>116</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM1270-M256</td>
+                <td>980</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM1270-F256</td>
+                <td>980</td>
+                <td>212</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM2210-F256</td>
+                <td>1700</td>
+                <td>204</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM2210-F324</td>
+                <td>1700</td>
+                <td>272</td>
+                <td>BGA</td>
+                <td>19x19</td>
+                <td>361</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM240Z-M68</td>
+                <td>192</td>
+                <td>54</td>
+                <td>BGA</td>
+                <td>5x5</td>
+                <td>25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM240Z-M100</td>
+                <td>192</td>
+                <td>80</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570Z-M100</td>
+                <td>440</td>
+                <td>76</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570Z-M144</td>
+                <td>440</td>
+                <td>116</td>
+                <td>BGA</td>
+                <td>7x7</td>
+                <td>49</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX II</span></td>
+                <td>EPM570Z-M256</td>
+                <td>440</td>
+                <td>160</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M40Z-E64</td>
+                <td>32</td>
+                <td>54</td>
+                <td>QFP</td>
+                <td>9x9</td>
+                <td>81</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M40Z-M64</td>
+                <td>32</td>
+                <td>30</td>
+                <td>BGA</td>
+                <td>4.5x4.5</td>
+                <td>20.25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M80Z-E64</td>
+                <td>64</td>
+                <td>54</td>
+                <td>QFP</td>
+                <td>9x9</td>
+                <td>81</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M80Z-T100</td>
+                <td>64</td>
+                <td>79</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M80Z-M64</td>
+                <td>64</td>
+                <td>30</td>
+                <td>BGA</td>
+                <td>4.5x4.5</td>
+                <td>20.25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M80Z-M68</td>
+                <td>64</td>
+                <td>52</td>
+                <td>BGA</td>
+                <td>5x5</td>
+                <td>25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M160Z-E64</td>
+                <td>128</td>
+                <td>54</td>
+                <td>QFP</td>
+                <td>9x9</td>
+                <td>81</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M160Z-T100</td>
+                <td>128</td>
+                <td>79</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M160Z-M100</td>
+                <td>128</td>
+                <td>79</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M160Z-M68</td>
+                <td>128</td>
+                <td>52</td>
+                <td>BGA</td>
+                <td>5x5</td>
+                <td>25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M240Z-T144</td>
+                <td>192</td>
+                <td>114</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M240Z-T100</td>
+                <td>192</td>
+                <td>79</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M240Z-M100</td>
+                <td>192</td>
+                <td>79</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M240Z-M68</td>
+                <td>192</td>
+                <td>52</td>
+                <td>BGA</td>
+                <td>5x5</td>
+                <td>25</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M570Z-T144</td>
+                <td>440</td>
+                <td>114</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M570Z-T100</td>
+                <td>440</td>
+                <td>74</td>
+                <td>QFP</td>
+                <td>16x16</td>
+                <td>256</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M570Z-M100</td>
+                <td>440</td>
+                <td>74</td>
+                <td>BGA</td>
+                <td>6x6</td>
+                <td>36</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M570Z-F256</td>
+                <td>440</td>
+                <td>159</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M1270Z-T144</td>
+                <td>980</td>
+                <td>114</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M1270Z-F256</td>
+                <td>980</td>
+                <td>211</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M1270Z-F324</td>
+                <td>980</td>
+                <td>271</td>
+                <td>BGA</td>
+                <td>19x19</td>
+                <td>361</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M2210Z-F256</td>
+                <td>1700</td>
+                <td>204</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX V</span></td>
+                <td>5M2210Z-F324</td>
+                <td>1700</td>
+                <td>271</td>
+                <td>BGA</td>
+                <td>19x19</td>
+                <td>361</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02DCV36</td>
+                <td>1600</td>
+                <td>27</td>
+                <td>BGA</td>
+                <td>3x3</td>
+                <td>9</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02SCE144</td>
+                <td>1600</td>
+                <td>101</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02SCM153</td>
+                <td>1600</td>
+                <td>112</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02SCU169</td>
+                <td>1600</td>
+                <td>130</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02SCU324</td>
+                <td>1600</td>
+                <td>246</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M02DCU324</td>
+                <td>1600</td>
+                <td>160</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04D C/A F256</td>
+                <td>3200</td>
+                <td>178</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04S C/A E144</td>
+                <td>3200</td>
+                <td>101</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04S C/A M153</td>
+                <td>3200</td>
+                <td>112</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04S C/A U169</td>
+                <td>3200</td>
+                <td>130</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04S C/A 324</td>
+                <td>3200</td>
+                <td>246</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M04D C/A U324</td>
+                <td>3200</td>
+                <td>246</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08SLV81</td>
+                <td>6400</td>
+                <td>58</td>
+                <td>BGA</td>
+                <td>4x4</td>
+                <td>16</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08D C/F V81</td>
+                <td>6400</td>
+                <td>56</td>
+                <td>BGA</td>
+                <td>4x4</td>
+                <td>16</td>
+                <td>0.4</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08D C/A F256</td>
+                <td>6400</td>
+                <td>178</td>
+                <td>BGA</td>
+                <td>17x17</td>
+                <td>289</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08D C/A F484</td>
+                <td>6400</td>
+                <td>250</td>
+                <td>BGA</td>
+                <td>23x23</td>
+                <td>529</td>
+                <td>1.0</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08S C/A E144</td>
+                <td>6400</td>
+                <td>101</td>
+                <td>QFP</td>
+                <td>22x22</td>
+                <td>484</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08S C/A M153</td>
+                <td>6400</td>
+                <td>112</td>
+                <td>BGA</td>
+                <td>8x8</td>
+                <td>64</td>
+                <td>0.5</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08S C/A U169</td>
+                <td>6400</td>
+                <td>130</td>
+                <td>BGA</td>
+                <td>11x11</td>
+                <td>121</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08S C/A 324</td>
+                <td>6400</td>
+                <td>246</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+            <tr class="intel">
+                <td><span class="label intel">MAX 10</span></td>
+                <td>10M08D C/A U324</td>
+                <td>6400</td>
+                <td>246</td>
+                <td>BGA</td>
+                <td>15x15</td>
+                <td>225</td>
+                <td>0.8</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+
 </html>
