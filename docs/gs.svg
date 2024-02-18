@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="true"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>GS logo</desc>
+
+  <!-- Show outline of viewport using 'rect' element -->
+  <polygon fill="#00A860" 
+            points="100,0 0,100 100,200 150,100 64,100 100,136 100,150 50,100" />
+  <polygon fill="#CCCCCC" 
+            points="64,100 100,136 100,150 50,100" />
+  <polygon fill="black" 
+            points="100,0 50,100 150,100 100,200 200,100 165,65 100,65 100,55 155,55" />
+  <polygon fill="#CCCCCC" 
+            points="165,65 100,65 100,55 155,55" />
+  <path d="M 100 0
+           A 100 100, 0, 0, 1, 200 100
+           L 100 0 Z" fill="#CCCCCC"/>
+  <path d="M 200 100
+           A 100 100, 0, 0, 1, 100 200
+           L 200 100 Z" fill="#CCCCCC"/>
+  <path d="M 100 200
+           A 100 100, 0, 0, 1, 0 100
+           L 0 100 Z" fill="#CCCCCC"/>
+  <path d="M 0 100
+           A 100 100, 0, 0, 1, 100 0
+           L 0 100 Z" fill="#CCCCCC"/>
+</svg>
